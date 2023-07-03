@@ -14,8 +14,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/register', [AuthenticatedController::class,'showRegister']);
-
 
 Route::get('/', function () {
     return view('welcome');
