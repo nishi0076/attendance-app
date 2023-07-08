@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthenticatedController;
+use App\Http\Controllers\TimeStampController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,9 +16,10 @@ use Illuminate\Support\Facades\Route;
 */
 
 
-Route::get('/', function () {
-    return view('attendance.index');
-});
+Route::get('/', [TimeStampController::class, 'index'])
+->middleware('auth')
+->name('attendance.index');
+
 
 Route::get('/dashboard', function () {
     return view('dashboard');
