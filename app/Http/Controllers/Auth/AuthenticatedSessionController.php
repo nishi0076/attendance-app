@@ -28,11 +28,13 @@ class AuthenticatedSessionController extends Controller
      */
     public function store(LoginRequest $request)
     {
-        $request->authenticate();
-
-        $request->session()->regenerate();
-
-        return redirect()->intended(RouteServiceProvider::HOME);
+        $email = $request->email;
+        $password = $request->password;
+        if (Auth::attempt(['email' => $email,
+        'password' => $password]))
+        {
+            return redirect('/');
+        }
     }
 
     /**
@@ -49,6 +51,6 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerateToken();
 
-        return redirect('/');
+        return redirect('login');
     }
 }
