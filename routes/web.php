@@ -21,6 +21,4 @@ Route::get('/', [TimeStampController::class, 'index'])
 ->name('attendance.index');
 
 
-
-
 require __DIR__.'/auth.php';
