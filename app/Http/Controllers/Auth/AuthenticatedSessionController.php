@@ -15,7 +15,7 @@ class AuthenticatedSessionController extends Controller
      *
      * @return \Illuminate\View\View
      */
-    public function create()
+    public function showLogin()
     {
         return view('auth.login');
     }
@@ -26,7 +26,7 @@ class AuthenticatedSessionController extends Controller
      * @param  \App\Http\Requests\Auth\LoginRequest  $request
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function store(LoginRequest $request)
+    public function login(LoginRequest $request)
     {
         $email = $request->email;
         $password = $request->password;
